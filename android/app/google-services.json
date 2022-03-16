@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "248379179416",
+    "project_id": "hear-it-through",
+    "storage_bucket": "hear-it-through.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248379179416:android:391f3428e961d01a3a2bed",
+        "android_client_info": {
+          "package_name": "com.example.hear_it_through"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "248379179416-nc25inp8c55i11htuhmgmt2j0fv79m9u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hear_it_through",
+            "certificate_hash": "e488ba328b8ae44f8788fa21c6d38cf6adc0fad4"
+          }
+        },
+        {
+          "client_id": "248379179416-127dpsiqs8qtuublqrck5npkk631814q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5WnfWk5HMhZuDxkqqgQei3jaD6V_cFwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "248379179416-127dpsiqs8qtuublqrck5npkk631814q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
