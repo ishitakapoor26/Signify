@@ -48,9 +48,11 @@ List<String> isl_gif = ['any questions', 'are you angry', 'are you busy', 'are y
   'tuesday', 'usa', 'village',
   'voice', 'wednesday', 'weight', 'please wait for sometime', 'what is your mobile number',
   'what are you doing', 'are you busy'];
-//
-// List<String> arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-//   'w', 'x', 'y', 'z'];
+
+List<String> arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+  'w', 'x', 'y', 'z'];
+  List<String> result=[];
+
 
 
 class _ConverState extends State<Conver> {
@@ -79,6 +81,7 @@ class _ConverState extends State<Conver> {
         onResult: (val) =>
             setState(() {
               _lastWords = val.recognizedWords;
+              result= isl(_lastWords);
             }),);
     } else {
       setState(() {
@@ -88,11 +91,13 @@ class _ConverState extends State<Conver> {
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Signable'),
+        title: Text('Signify'),
         centerTitle: true,
         backgroundColor: Color(0xff115CB7),
       ),
@@ -121,24 +126,46 @@ class _ConverState extends State<Conver> {
       ),
       // margin: EdgeInsets.only(left: 5.0),
         child:Padding(
-          padding: const EdgeInsets.only(bottom: 25.0,  left: 25.0, right: 25.0, top: 0.0),
-          child: Container(
-            child: Image.asset(isl(_lastWords)!='null' ? 'images/'+isl(_lastWords): 'images/432008031_FOLDED_HANDS_3D_LIGHT_SKIN_TONE_400px.gif'),
-          ),
+          padding: const EdgeInsets.only(bottom: 25.0,  left: 25.0, right: 25.0, top: 50.0),
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                for(var i in result) Image.asset(i)
+                          // Container(
+              //   child: Image.asset(isl(_lastWords)!='null' ? 'images/'+isl(_lastWords): 'images/432008031_FOLDED_HANDS_3D_LIGHT_SKIN_TONE_400px.gif'),
+              // ),
+              ]
+
         ),
+            ),
+          ),
       ),
-      ),);
+      ),),);
   }
 }
-String isl(String _lastwrds)
+
+List<String> isl(String _lastwrds)
 {
-  for(var i in isl_gif) {
-    if (i == _lastwrds) {
-      return _lastwrds + '.gif';
+    if (isl_gif.contains(_lastwrds)) {
+      print(['images/'+_lastwrds + '.gif']);
+      return ['images/'+_lastwrds + '.gif'];
+    }
+
+  List<String> final_list= [];
+  List<String> words= _lastwrds.split('');
+  for(var j in words){
+    if(arr.contains(j)){
+      final_list+= ['images/practice/'+j+'.jpg'];
     }
   }
-  for(var j in _lastwrds.split('') ){
-    Image.asset('images/'+j+'.jpg');
+  print(final_list);
+  return final_list;
   }
-    return 'null';
-}
+  // for(var j in _lastwrds.split('') ){
+  //   Image.asset('images/'+j+'.jpg');
+  // }
+  //   return 'null';
+

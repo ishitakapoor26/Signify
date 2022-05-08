@@ -6,7 +6,6 @@ import 'package:flutter/src/material/colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Hear \n It \n Through',
+      title: 'Signify',
       theme: ThemeData(
         primaryColor: Colors.teal,
       ),

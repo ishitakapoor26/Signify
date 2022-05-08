@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hear_it_through/result.dart';
 
 class Practice extends StatefulWidget {
   const Practice({Key? key}) : super(key: key);
@@ -149,6 +150,9 @@ class _PracticeState extends State<Practice> {
                     if (_questionIndex < _questions.length - 1) {
                       _questionIndex++;
                       choice = false;
+                    }
+                    else{
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => result_quiz(totalScore: _totalScore, questionIndex:_questionIndex),));
                     }
                   });
                 },

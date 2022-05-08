@@ -27,7 +27,7 @@ class _IntroSliderPageState extends State<IntroSliderPage> {
         fontSize: 40.0,
         fontWeight: FontWeight.w700,
       ),
-      description:"Hello, I'm Signable's\nvirtual translator of sign\nlanguage and I will help you.",
+      description:"Hello, I'm Signify's\nvirtual translator of sign\nlanguage and I will help you.",
       styleDescription: TextStyle(
         fontFamily: 'Poppins',
         fontSize: 18.0,
@@ -43,7 +43,7 @@ class _IntroSliderPageState extends State<IntroSliderPage> {
         fontSize: 40.0,
         fontWeight: FontWeight.w700,
       ),
-      description:"Signable uses NLP\nto translate speech to ISL\nand helps you learn and\nunderstand sign language." ,
+      description:"Signify uses NLP\nto translate speech to ISL\nand helps you learn and\nunderstand sign language." ,
       styleDescription: TextStyle(
         fontFamily: 'Poppins',
         fontSize: 18.0,

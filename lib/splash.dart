@@ -23,7 +23,7 @@ class _splashscreenState extends State<splashscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Signable'),
+        title: Text('Signify'),
         backgroundColor: Color(0xff115CB7),
         centerTitle: true,
       ),
@@ -50,7 +50,7 @@ class _splashscreenState extends State<splashscreen> {
                 height: 15.0,
               ),
               Text(
-                "Signable",
+                "Signify",
                 style: TextStyle(
                   fontSize: 35.0,
                   color: Color(0xff115CB7),
