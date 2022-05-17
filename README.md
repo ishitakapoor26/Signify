@@ -1,5 +1,11 @@
 # Signify
 
+<div align= "center">
+
+<img src="https://github.com/ishitakapoor26/Signify/blob/main/images/sign-language-symbol-260nw-1212531118-removebg-preview.png">
+
+</div>
+
 Signify is an application which bridges the communication gap between deaf and physically sound. Hence, helping deaf people to understand other person’s talk (converting the speech of the physically sound person to sign language).
 
 ## Getting Started
