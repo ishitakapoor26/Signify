@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hear_it_through/practice_init.dart';
 import 'package:hear_it_through/result.dart';
 
 class Practice extends StatefulWidget {
@@ -15,12 +16,9 @@ class _PracticeState extends State<Practice> {
   static int _questionIndex = 0;
   int _totalScore = 0;
   bool choice = false;
+  int _ttlScore=0;
 
-
-
-
-
-
+ 
 
   void _after(String score) {
     setState(() {
@@ -39,6 +37,12 @@ class _PracticeState extends State<Practice> {
         ),
         backgroundColor: Color(0xff115CB7),
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> beginPractice()));
+          },
+          ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -152,6 +156,9 @@ class _PracticeState extends State<Practice> {
                       choice = false;
                     }
                     else{
+                      // _ttlScore=_totalScore;
+                      // _totalScore=0;
+                      _questionIndex=0;
                       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => result_quiz(totalScore: _totalScore, questionIndex:_questionIndex),));
                     }
                   });

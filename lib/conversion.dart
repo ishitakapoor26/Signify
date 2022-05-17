@@ -2,6 +2,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:hear_it_through/learn.dart';
 import 'package:hear_it_through/practice.dart';
+import 'package:hear_it_through/practice_init.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
@@ -18,7 +19,7 @@ class Conversion extends StatefulWidget {
 List<Widget> _widgetOptions = <Widget>[
   Conver(),
   Learn(),
-  Practice(),
+  beginPractice(),
   // Profile(),
 ];
 

@@ -71,6 +71,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/
+    - assets/quiz-time-words-splash-paint-letters-vector-colorful-184587550-removebg-preview.png
     - images/Practice Images/
     - images/practice/
     - assets/result-removebg-preview.png

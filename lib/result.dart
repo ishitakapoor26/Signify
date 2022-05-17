@@ -20,6 +20,7 @@ class _result_quizState extends State<result_quiz> {
 
   void initState(){
     totalScore= widget.totalScore;
+    questionIndex= widget.questionIndex;
     super.initState();
   }
 
@@ -30,6 +31,12 @@ class _result_quizState extends State<result_quiz> {
         title: Text('Signify',),
         centerTitle: true,
         backgroundColor: Color(0xff115CB7),
+        leading:IconButton(
+    icon: const Icon(Icons.arrow_back),
+    onPressed: () {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Conversion()));
+    }
+    ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -44,7 +51,7 @@ class _result_quizState extends State<result_quiz> {
                 Text('You have a total score of ${totalScore} points. \nKeep up the good work!',
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 20.0,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.w500,
                 ),),
                 SizedBox(
@@ -56,6 +63,7 @@ class _result_quizState extends State<result_quiz> {
                     onPressed: (){
                       setState(() {
                         totalScore=0;
+                        questionIndex=1;
                       });
                       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Practice()));
                     },
