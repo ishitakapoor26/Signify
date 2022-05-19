@@ -31,7 +31,10 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Steps to Run the Project
 
+<div align = "center">
 <img src= "https://i.ytimg.com/vi/hfz_AraTk_k/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAbrkOPSv3hjl2paPGdVpDDtzzptQ">
+
+</div>
 
 - Install any IDE like Visual Studio Code or Android Studio.
   [Install Android Studio](https://developer.android.com/studio/install)
