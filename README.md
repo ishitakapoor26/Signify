@@ -44,6 +44,32 @@ samples, guidance on mobile development, and a full API reference.
 - Flutter
 - Dart
 
+## Dependencies Used
+
+- ### cupertino_icons:
+      This is an asset repo containing the default set of icon assets used by Flutter's Cupertino widgets.
+      Check out its usage at https://pub.dev/packages/cupertino_icons.
+
+- ### intro_slider:
+      Flutter Intro Slider is a flutter plugin that helps you make a cool intro for your app. Create intro has never been easier and faster.
+      Check out its usage at https://pub.dev/packages/intro_slider.
+
+- ### speech_to_text:
+      A library that exposes device specific speech recognition capability.
+
+      This plugin contains a set of classes that make it easy to use the speech recognition capabilities of the underlying platform in Flutter. It supports Android, iOS and web. The target use cases for this library are commands and short phrases, not continuous spoken conversion or always on listening.
+
+      Check out its usage at https://pub.dev/packages/speech_to_text.
+
+- ### avatar_glow:
+      This Flutter package provides a Avatar Glow Widget with cool background glowing animation.
+
+      Live Demo: https://apgapg.github.io/avatar_glow/
+      Check out its usage at https://pub.dev/packages/avatar_glow.
+      
+     
+
+
 ## App Screens
 
 <div align="center">
