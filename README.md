@@ -8,6 +8,18 @@
 
 Signify is an application which bridges the communication gap between deaf and physically sound. Hence, helping deaf people to understand other person’s talk (converting the speech of the physically sound person to sign language).
 
+## Features of the application
+
+- ### Speech to Indian Sign Language Conversion (ISL):
+  - Real time speech to indian sign language conversion to facilitate conversion between the deaf and sound people.
+  - Output is in the form of either gifs or a sequence of hand gesture images.
+
+- ### Learn:
+  - With the help of ISL hand gesture images, learn ISL.
+
+- ### Practice:
+  - Practice ISL hand gestures with the help of interactive quiz feature. 
+
 ## Getting Started
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
