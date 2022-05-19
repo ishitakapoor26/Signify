@@ -60,3 +60,4 @@ samples, guidance on mobile development, and a full API reference.
 ## Mobile Application Demo Video
 
 Here's demonstration of the working application. [Link]()
+![](https://drive.google.com/file/d/1flIfskcaNqq35O6wfFekrsu6KTwvKZb6/view?usp=sharing)
