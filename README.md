@@ -26,7 +26,7 @@ samples, guidance on mobile development, and a full API reference.
 - Set up the Flutter environment in the preferred IDE (I preferred Android Studio).
   Checkout the [link](https://docs.flutter.dev/development/tools/android-studio) for setting up the flutter environment.
 
-- Set up the device to view the application either Emulator or physsical device.
+- Set up the device to view the application either in Emulator or physical device.
 
   - To view application using Emulator, Follow the [link](https://tutorial.tips/create-android-emulator-for-flutter/)
   - To view application in physical device/ mobile phone, Follow the [link](https://stackoverflow.com/questions/54444538/how-do-i-run-test-my-flutter-app-on-a-real-device)
