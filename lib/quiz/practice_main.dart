@@ -1,8 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:hear_it_through/practice_init.dart';
-import 'package:hear_it_through/result.dart';
+import 'package:hear_it_through/quiz/practice_start.dart';
+import 'package:hear_it_through/result/result.dart';
+
+import '../global/global.dart';
 
 class Practice extends StatefulWidget {
   const Practice({Key? key}) : super(key: key);
@@ -12,18 +12,19 @@ class Practice extends StatefulWidget {
 }
 
 class _PracticeState extends State<Practice> {
-  List<Icon> _scoreTracker = [];
+  // final List<Icon> _scoreTracker = [];
   static int _questionIndex = 0;
-  int _totalScore = 0;
+  int _totalScore = sharedPreferences.getInt('_totalScore') ?? 0;
   bool choice = false;
-  int _ttlScore=0;
-
- 
+  // final int _ttlScore = 0;
 
   void _after(String score) {
     setState(() {
       choice = true;
-      if (score == 'true') _totalScore += 2;
+      if (score == 'true') {
+        _totalScore += 2;
+        sharedPreferences.setInt('_totalScore', _totalScore);
+      }
     });
   }
 
@@ -31,18 +32,23 @@ class _PracticeState extends State<Practice> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Practice",
           style: TextStyle(fontFamily: 'poppins'),
         ),
-        backgroundColor: Color(0xff115CB7),
+        backgroundColor: const Color(0xff115CB7),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> beginPractice()));
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const BeginPracticeState(),
+              ),
+            );
           },
-          ),
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -55,20 +61,20 @@ class _PracticeState extends State<Practice> {
                     children: [
                       SafeArea(
                         child: Padding(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Container(
                             width: double.infinity,
                             height: MediaQuery.of(context).size.height / 40,
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                    color: Color(0xFF3F4768), width: 2),
+                                    color: const Color(0xFF3F4768), width: 2),
                                 borderRadius: BorderRadius.circular(50)),
                             child: Stack(
                               children: [
                                 LayoutBuilder(
                                   builder: (context, constraints) => Container(
                                     width: constraints.maxWidth *
-                                        (_questionIndex+1) /
+                                        (_questionIndex + 1) /
                                         26,
                                     decoration: BoxDecoration(
                                         gradient: const LinearGradient(
@@ -82,7 +88,7 @@ class _PracticeState extends State<Practice> {
                                   ),
                                 ),
                                 Center(
-                                  child: Text('${_questionIndex+1}/26'),
+                                  child: Text('${_questionIndex + 1}/26'),
                                 )
                               ],
                             ),
@@ -96,17 +102,30 @@ class _PracticeState extends State<Practice> {
               //*********************************************************** Score ****************************************************************************
               Center(
                 child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color(0xff115CB7), shape: BoxShape.circle),
-                  // color: Colors.blueAccent,
-                  height: 65,
-                  width: 65,
-                  child: Center(
-                      child: Text(
-                    "    $_totalScore\nScore",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  )),
-                ),
+                    decoration: const BoxDecoration(
+                        color: Color(0xff115CB7), shape: BoxShape.circle),
+                    // color: Colors.blueAccent,
+                    //"$_totalScore\nScore"
+                    height: 65,
+                    width: 65,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${sharedPreferences.getInt('_totalScore') ?? "$_totalScore "}',
+                          style: const TextStyle(
+                            fontSize: 24.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const Text(
+                          'Score',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    )),
               ),
 
               //********************************************************* Quiz Part ****************************************************************************
@@ -115,16 +134,16 @@ class _PracticeState extends State<Practice> {
                 width: double.infinity,
                 // height: MediaQuery.of(context).size.height/5,
 
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(20),
+                margin: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
-                    color: Color(0xff115CB7),
+                    color: const Color(0xff115CB7),
                     borderRadius: BorderRadius.circular(10.0)),
                 child: Column(children: [
                   Center(
                       child: Text(
                     _questions[_questionIndex]['question'].toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 17,
                         color: Colors.white,
                         fontFamily: 'poppins'),
@@ -154,23 +173,27 @@ class _PracticeState extends State<Practice> {
                     if (_questionIndex < _questions.length - 1) {
                       _questionIndex++;
                       choice = false;
-                    }
-                    else{
+                    } else {
                       // _ttlScore=_totalScore;
                       // _totalScore=0;
-                      _questionIndex=0;
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => result_quiz(totalScore: _totalScore, questionIndex:_questionIndex),));
+                      _questionIndex = 0;
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => Resultquiz(
+                          totalScore: _totalScore,
+                          //questionIndex: _questionIndex,
+                        ),
+                      ));
                     }
                   });
                 },
                 child: Container(
-                  margin: EdgeInsets.all(15),
+                  margin: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                      color: Color(0xff115CB7),
+                      color: const Color(0xff115CB7),
                       borderRadius: BorderRadius.circular(10)),
                   height: MediaQuery.of(context).size.height / 17,
                   width: MediaQuery.of(context).size.width,
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     "Next",
                     style: TextStyle(
@@ -180,7 +203,6 @@ class _PracticeState extends State<Practice> {
                   )),
                 ),
               ),
-
             ],
           ),
         ),
@@ -193,11 +215,12 @@ class Answer extends StatelessWidget {
   final String answerText;
   final Color answerColor;
   final void Function() click;
-
-  Answer(
-      {required this.answerText,
-      required this.answerColor,
-      required this.click});
+  const Answer({
+    Key? key,
+    required this.answerText,
+    required this.answerColor,
+    required this.click,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -205,8 +228,8 @@ class Answer extends StatelessWidget {
       onTap: click,
       child: Container(
         height: 50,
-        padding: EdgeInsets.all(10.0),
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 5),
+        padding: const EdgeInsets.all(10.0),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 5),
         width: double.infinity,
         decoration: BoxDecoration(
             border: Border.all(color: Colors.blue),
@@ -222,7 +245,7 @@ class Answer extends StatelessWidget {
   }
 }
 
-final _questions = const [
+const _questions = [
   {
     'question': 'What do you mean by the following hand gesture? \n ',
     'image': 'images/Practice Images/d.jpg',

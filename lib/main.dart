@@ -1,11 +1,11 @@
-import 'package:firebase_core/firebase_core.dart';
-import'package:flutter/material.dart';
-import 'package:hear_it_through/splash.dart';
-import 'package:flutter/src/material/colors.dart';
-
+import 'package:flutter/material.dart';
+import 'package:hear_it_through/global/global.dart';
+import 'package:hear_it_through/splash/splash.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  sharedPreferences = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.teal,
       ),
-      home: splashscreen(),
+      home: const SplashScreen(),
     );
   }
 }
